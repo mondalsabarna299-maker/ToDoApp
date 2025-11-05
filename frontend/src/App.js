@@ -6,23 +6,23 @@ function App() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/tasks").then((res) => setTasks(res.data));
+    axios.get("https://to-do-app-jccq.vercel.app/api/tasks").then((res) => setTasks(res.data));
   }, []);
 
   const addTask = async () => {
     if (!text.trim()) return;
-    const res = await axios.post("http://localhost:5000/api/tasks", { text });
+    const res = await axios.post("https://to-do-app-jccq.vercel.app/api/tasks", { text });
     setTasks([...tasks, res.data]);
     setText("");
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    await axios.delete(`https://to-do-app-jccq.vercel.app/api/tasks/${id}`);
     setTasks(tasks.filter((t) => t._id !== id));
   };
 
   const toggleTask = async (id) => {
-    const res = await axios.put(`http://localhost:5000/api/tasks/${id}`);
+    const res = await axios.put(`https://to-do-app-jccq.vercel.app/api/tasks/${id}`);
     setTasks(tasks.map((t) => (t._id === id ? res.data : t)));
   };
 
