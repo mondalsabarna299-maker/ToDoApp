@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/tasks", taskRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://mondalsubarna29:Su12345@cluster0.1kmazke.mongodb.net/totododos")
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.log(err));
 
